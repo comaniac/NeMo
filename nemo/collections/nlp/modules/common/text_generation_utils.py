@@ -595,10 +595,6 @@ def generate(
                     word = tokenizer.ids_to_tokens(token)
                     if isinstance(word, Iterable):
                         word = word[0]
-                    if hasattr(tokenizer.tokenizer, 'byte_decoder'):
-                        word = bytearray([tokenizer.tokenizer.byte_decoder[c] for c in word]).decode(
-                            'utf-8', errors='replace'
-                        )
                     words.append(word)
                 resp_sentences_seg.append(words)
             else:
